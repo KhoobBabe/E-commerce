@@ -2,20 +2,16 @@
 // A component is the basic building block of an Angular application. 
 // The component description includes the component's code, HTML template, and styles, which can be described in this file, or in separate files.
 // In this app, the styles are in a separate file while the component's code and HTML template are in this file.
-
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { HeaderComponent } from "./shared/layouts/header/header.component";
-import { FooterComponent } from "./shared/layouts/footer/footer.component";
-
 @Component({
-  template: `<h1>Hello world!</h1>`,
-  selector: 'app-root',
-  standalone: true,
-  imports: [RouterOutlet, HeaderComponent, FooterComponent],
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+    template: `<h1>Hello world!</h1>`,
+    selector: 'app-root',
+    standalone: true,
+    imports: [RouterOutlet],
+    templateUrl: './app.component.html',
+    styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = 'my-app';
+    title = 'my-app';
 }

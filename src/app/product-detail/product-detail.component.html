@@ -29,7 +29,7 @@
     <h2>{{ product.name }}</h2>
     <p>{{ product.description }}</p>
     <p>Price: ${{ product.price }}</p>
-    <p *ngIf="product.availability; else outOfStock">Available</p>
-    <ng-template #outOfStock><p>Out of Stock</p></ng-template>
+    <p *ngIf="product.availability">In Stock</p>
+    <p *ngIf="!product.availability">Out of Stock</p>
     <button (click)="addToCart(product)">Add to Cart</button>
   </div>

@@ -3,6 +3,7 @@ import { Product } from '../product';
 import { CommonModule } from '@angular/common'; 
 import { OnInit } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { ProductService } from '../product.service';
 
 @Component({
   selector: 'app-product-list',
@@ -13,20 +14,13 @@ import { RouterModule } from '@angular/router';
 })
 export class ProductListComponent implements OnInit {
 
-  product: Product[] = [
+  products: Product[] = [];
 
-    new Product(1, 'Laptop', 1000, 'High-performance ', true),
-    new Product(2, 'Tablet', 500, 'Portable tablet', false),
-    new Product(3, 'Smartphone', 800, 'Latest smartphone', true)
-
-  ];
-
-  constructor() { } 
+  constructor(private productService: ProductService) { }
 
   ngOnInit(): void {
-
-
-}
+    this.products = this.productService.getProducts();
+  }
 }
 
 

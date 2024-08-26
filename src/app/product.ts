@@ -1,20 +1,23 @@
 export class Product {
 
-    constructor (private id: any, private name: string, private price: number, private description: string) {
+    constructor (public id: any, public name: string, public price: number, public description: string, public availability: boolean = true) {
     }
 
     // Getters for the class
     getId() : any {
         return this.id;
     }
-    getname() : string {
+    getName() : string {
         return this.name;
     }
     getPrice() : number {
         return this.price;
     }
     getDescription() : string {
-        return this.description
+        return this.description;
+    }
+    getAvailability() : boolean {
+        return this.availability;
     }
 
     // Setters for the class
@@ -29,6 +32,10 @@ export class Product {
     }
     setDescription(description: string): void {
         this.description = description;
+    }
+
+    setAvailability(availability: boolean): void {
+        this.availability = availability;
     }
 
 }

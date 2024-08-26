@@ -1,12 +1,36 @@
-<div *ngIf="products.length > 0; else noProducts">
-    <div *ngFor="let product of products" class="product-item">
-      <h3>{{ product.name }}</h3>
+  <!-- <div class="product-list">
+    <h2>Product List</h2>
+    
+    <ul class="list-group">
+      <li 
+        *ngFor="let product of product" 
+        class="list-group-item d-flex justify-content-between align-items-center"
+        [ngClass]="{'in-stock': product.availability, 'out-of-stock': !product.availability}"
+        [ngStyle]="{'background-color': product.availability ? '#d4edda' : '#f8d7da'}"
+        [routerLink]="['/product', product.id]">
+        
+        <div class="product-details">
+          <h5>{{ product.name }}</h5> 
+          <p>{{ product.name }}</p>
+        </div>
+  
+        <span class="badge" [ngClass]="{'bg-success': product.availability, 'bg-danger': !product.availability}">
+          {{ product.availability ? 'In Stock' : 'Out of Stock' }}
+        </span>
+        
+      </li>
+    </ul>
+  </div> -->
+  <ul class="list-group">
+    <li 
+      *ngFor="let product of product" 
+      class="list-group-item"
+      [routerLink]="['/product', product.id]">
+      <h5>{{ product.name }}</h5>
       <p>{{ product.description }}</p>
-      <span>Price: ${{ product.price }}</span>
-    </div>
-  </div>
-  
-  <ng-template #noProducts>
-    <p>No products available.</p>
-  </ng-template>
-  
+    </li>
+  </ul>
+
+
+
+ 

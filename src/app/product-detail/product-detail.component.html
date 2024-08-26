@@ -1,1 +1,35 @@
-<p>product-detail works!</p>
+<!-- <div *ngIf="product">
+    <h2>{{ product.getName() }}</h2>
+    <p>{{ product.getDescription() }}</p>
+    <p><strong>Price: </strong>{{ product.getPrice() }}</p>  
+    <p><strong>Product ID: </strong>{{ product.getId() }}</p>
+    <button (click)="addToCart(product)">Add to Cart</button>
+</div>
+<h1 *ngIf="product"> {{ product.getName() }}</h1>
+<h1> {{ product?.getName()}}</h1> -->
+
+<!-- 
+<div *ngIf="product">
+    <h2>{{ product.getName() }} Details</h2>
+    <p><strong>Price:</strong> ${{ product.getPrice() }}</p>
+    <p><strong>Description:</strong> {{ product.getDescription() }}</p>
+    <p><strong>Availability:</strong> {{ product.getAvailability() ? 'In Stock' : 'Out of Stock' }}</p>
+  </div>
+   -->
+
+   <!-- <div *ngIf="product">
+    <h2>{{ product.name }}</h2>
+    <p>Price: {{ product.price }}</p>
+    <p>Description: {{ product.description }}</p>
+    <p *ngIf="product.availability">This product is available</p>
+    <p *ngIf="!product.availability">This product is not available</p>
+  </div> -->
+
+  <div *ngIf="product">
+    <h2>{{ product.name }}</h2>
+    <p>{{ product.description }}</p>
+    <p>Price: ${{ product.price }}</p>
+    <p *ngIf="product.availability; else outOfStock">Available</p>
+    <ng-template #outOfStock><p>Out of Stock</p></ng-template>
+    <button (click)="addToCart(product)">Add to Cart</button>
+  </div>

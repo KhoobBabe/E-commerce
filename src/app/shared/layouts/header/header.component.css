@@ -1,0 +1,20 @@
+header {
+    background-color: gray;
+}
+
+/* Remove the arrow (caret) from the dropdown */
+.nav-link.dropdown-toggle::after {
+    display: none;
+  }
+
+  /* Show the dropdown on hover */
+.nav-item.dropdown:hover .dropdown-menu {
+    display: block;
+    margin-top: 0; /* Optional: Adjusts the position */
+  }
+
+  .btn,.btn-outline-success {
+    color: white;
+    border-color: white;
+  }
+  

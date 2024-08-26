@@ -9,12 +9,15 @@ import { HeaderComponent } from "./shared/layouts/header/header.component";
 import { FooterComponent } from "./shared/layouts/footer/footer.component";
 
 @Component({
-  template: `<h1>Hello world!</h1>`,
+
   selector: 'app-root',
+  template: `<router-outlet></router-outlet>`,
   standalone: true,
-  imports: [RouterOutlet, HeaderComponent, FooterComponent],
+  imports: [RouterOutlet, HeaderComponent, FooterComponent, ],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  styleUrls: ['./app.component.css']
+
+
 })
 export class AppComponent {
   title = 'my-app';

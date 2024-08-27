@@ -13,3 +13,4 @@
 <p *ngIf="cartItems.length > 0">Total Cost: ${{ getTotalCost() }}</p>
 
 <button *ngIf="cartItems.length > 0" (click)="clearCart()">Clear Cart</button>
+<a routerLink="/checkout">Proceed to Checkout</a>

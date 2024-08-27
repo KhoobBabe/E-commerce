@@ -1,6 +1,12 @@
 export class Product {
 
-    constructor (public id: any, public name: string, public price: number, public description: string, public availability: boolean = true) {
+    constructor (
+        public id: any, 
+        public name: string, 
+        public price: number, 
+        public description: string, 
+        public availability: boolean = true, 
+        public category: string) {
     }
 
     // Getters for the class
@@ -19,6 +25,9 @@ export class Product {
     getAvailability() : boolean {
         return this.availability;
     }
+    getCategory() : string {
+        return this.category;
+    }
 
     // Setters for the class
     setId(id: any): void {
@@ -36,6 +45,9 @@ export class Product {
 
     setAvailability(availability: boolean): void {
         this.availability = availability;
+    }
+    setCategory(category: string): void {
+        this.category = category;
     }
 
 }

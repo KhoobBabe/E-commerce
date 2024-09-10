@@ -4,26 +4,24 @@
 // In this app, the styles are in a separate file while the component's code and HTML template are in this file.
 
 import { Component } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
 import { RouterOutlet } from '@angular/router';
 import { HeaderComponent } from "./shared/layouts/header/header.component";
 import { FooterComponent } from "./shared/layouts/footer/footer.component";
 import { AuthService } from './auth.service';
 
 @Component({
-
   selector: 'app-root',
   template: `<router-outlet></router-outlet>`,
   standalone: true,
-  imports: [RouterOutlet, HeaderComponent, FooterComponent, ],
+  imports: [HttpClientModule, RouterOutlet, HeaderComponent, FooterComponent],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
-
-
 })
 export class AppComponent {
   title = 'my-app';
   constructor(private authService: AuthService) {
-    // For testing purposes, set the role here
-    this.authService.setUserRole('admin'); // or 'admin'
+    this.authService.setUserRole('admin');
   }
 }
+

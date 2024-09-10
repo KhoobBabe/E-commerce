@@ -1,0 +1,145 @@
+/* cart.component.css */
+
+.container {
+    width: 90%;
+}
+
+/* Style the cart heading */
+h2 {
+    text-align: center;
+    margin: 20px;
+    color: #333;
+    font-family: 'Arial', sans-serif;
+}
+
+/* Style the list of cart items */
+.list-group {
+    margin: 20px 0;
+}
+
+/* Style each cart item as a flex container */
+.list-group-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+
+/* Container for product details */
+.item-content {
+    display: flex;
+    flex: 1;
+    min-width: 0; /* Prevents overflow */
+}
+
+/* Product Name styling */
+.product-name {
+    flex: 2;
+    margin-right: 20px;
+}
+
+.product-name h5 {
+    font-size: 18px;
+    font-weight: bold;
+    color: #007bff;
+    margin: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Quantity styling */
+.product-quantity {
+    flex: 1;
+    text-align: center;
+}
+
+.product-quantity p {
+    margin: 0;
+    font-size: 16px;
+    color: #555;
+}
+
+/* Price styling */
+.product-price {
+    flex: 1;
+    text-align: center;
+}
+
+.product-price p {
+    margin: 0;
+    font-size: 16px;
+    color: #555;
+}
+
+/* Remove button styling */
+.remove-button {
+    margin-left: 20px;
+}
+
+.remove-button button {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+}
+
+.remove-button button:hover {
+    background-color: #c82333;
+}
+
+/* Style the total cost */
+p {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+    margin: 10px 0;
+}
+
+/* Style the Clear Cart and Proceed to Checkout buttons */
+.cart-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.cart-actions button,
+.cart-actions a {
+    text-decoration: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.cart-actions button {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.cart-actions button:hover {
+    background-color: #c82333;
+}
+
+.cart-actions a {
+    background-color: #28a745;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cart-actions a:hover {
+    background-color: #218838;
+}

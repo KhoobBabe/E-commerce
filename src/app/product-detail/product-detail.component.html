@@ -1,35 +1,17 @@
-<!-- <div *ngIf="product">
-    <h2>{{ product.getName() }}</h2>
-    <p>{{ product.getDescription() }}</p>
-    <p><strong>Price: </strong>{{ product.getPrice() }}</p>  
-    <p><strong>Product ID: </strong>{{ product.getId() }}</p>
-    <button (click)="addToCart(product)">Add to Cart</button>
-</div>
-<h1 *ngIf="product"> {{ product.getName() }}</h1>
-<h1> {{ product?.getName()}}</h1> -->
 
-<!-- 
-<div *ngIf="product">
-    <h2>{{ product.getName() }} Details</h2>
-    <p><strong>Price:</strong> ${{ product.getPrice() }}</p>
-    <p><strong>Description:</strong> {{ product.getDescription() }}</p>
-    <p><strong>Availability:</strong> {{ product.getAvailability() ? 'In Stock' : 'Out of Stock' }}</p>
-  </div>
-   -->
-
-   <!-- <div *ngIf="product">
-    <h2>{{ product.name }}</h2>
-    <p>Price: {{ product.price }}</p>
-    <p>Description: {{ product.description }}</p>
-    <p *ngIf="product.availability">This product is available</p>
-    <p *ngIf="!product.availability">This product is not available</p>
+<div *ngIf="product" class="product-detail-container">
+  <!-- <div class="product-image">
+    <img [src]="product.imageUrl" alt="{{ product.name }}" />
   </div> -->
+  <div class="product-info">
+    <h2 class="product-name">{{ product.name }}</h2>
+    <p class="product-description">{{ product.description }}</p>
+    <p class="product-price">Price: {{ product.price | currency }}</p>
+    
+    <p class="product-availability" [ngClass]="{'in-stock': product.availability, 'out-of-stock': !product.availability}">
+      {{ product.availability ? 'In Stock' : 'Out of Stock' }}
+    </p>
 
-  <div *ngIf="product">
-    <h2>{{ product.name }}</h2>
-    <p>{{ product.description }}</p>
-    <p>Price: ${{ product.price }}</p>
-    <p *ngIf="product.availability">In Stock</p>
-    <p *ngIf="!product.availability">Out of Stock</p>
-    <button (click)="addToCart(product)">Add to Cart</button>
+    <button class="add-to-cart-btn" (click)="addToCart(product)">Add to Cart</button>
   </div>
+</div>

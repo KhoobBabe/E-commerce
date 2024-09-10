@@ -1,24 +1,24 @@
 <form [formGroup]="searchForm" (ngSubmit)="onSearch()">
-    <div>
-      <label for="name">Product Name:</label>
-      <input id="name" formControlName="name">
-    </div>
-  
-    <div>
-      <label for="category">Category:</label>
-      <input id="category" formControlName="category">
-    </div>
-  
-    <button type="submit">Search</button>
-  </form>
-  
-  <!-- Display the filtered products -->
-  <ul *ngIf="filteredProducts.length > 0">
-    <li *ngFor="let product of filteredProducts">
-      <h5>{{ product.name }}</h5>
-      <p>{{ product.category }}</p>
-    </li>
-  </ul>
-  
-  <p *ngIf="filteredProducts.length === 0">No products found</p>
-  
+  <div>
+    <!-- <label for="name">Product Name:</label> -->
+    <input id="name" formControlName="name" placeholder="Name">
+  </div>
+
+  <div>
+    <!-- <label for="category">Category:</label> -->
+    <input id="category" formControlName="category" placeholder="Category">
+  </div>
+
+  <button type="submit">Search</button>
+</form>
+
+<!-- Display the filtered products -->
+<ul *ngIf="filteredProducts.length > 0">
+  <li *ngFor="let product of filteredProducts" >
+    <!-- Make product name clickable, leading to the product detail page -->
+    <a [routerLink]="['/product', product._id]">{{ product.name }}</a>
+    <!-- <p>{{ product.category }}</p> -->
+  </li>
+</ul>
+
+<p *ngIf="searchPerformed && filteredProducts.length === 0">No products found</p>

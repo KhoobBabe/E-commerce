@@ -10,13 +10,11 @@ import { AuthGuard } from './auth.guard';
 export const routes: Routes = [
   { path: '', redirectTo: '/products', pathMatch: 'full' },
   { path: 'products', component: ProductListComponent, canMatch: [AuthGuard] },
-  { path: 'product/:id', component: ProductDetailComponent, canMatch: [AuthGuard] },
+  { path: 'product/:id', component: ProductDetailComponent, canMatch: [AuthGuard] },  // Updated route
   { path: 'cart', component: CartComponent, canMatch: [AuthGuard] },
   { 
     path: 'checkout', 
     loadComponent: () => import('./checkout/checkout.component').then(m => m.CheckoutComponent),
     canMatch: [AuthGuard]
   },
-  { path: 'userRegistration', component: UserRegistrationComponent },
-  { path: '**', redirectTo: '/products' },
 ];

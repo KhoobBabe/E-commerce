@@ -1,16 +1,31 @@
 <h2>Shopping Cart</h2>
 
-<ul class="list-group">
-  <li *ngFor="let item of cartItems" class="list-group-item">
-    <h5>{{ item.product.name }}</h5>
-    <p>Quantity: {{ item.quantity }}</p>
-    <p>Total: ${{ item.product.price * item.quantity }}</p>
-    <button (click)="removeFromCart(item.product.id)">Remove</button>
-  </li>
-</ul>
+<div class="container">
 
-<p *ngIf="cartItems.length === 0">Your cart is empty.</p>
-<p *ngIf="cartItems.length > 0">Total Cost: ${{ getTotalCost() }}</p>
-
-<button *ngIf="cartItems.length > 0" (click)="clearCart()">Clear Cart</button>
-<a routerLink="/checkout">Proceed to Checkout</a>
+  <ul class="list-group">
+    <li *ngFor="let item of cartItems" class="list-group-item">
+      <div class="item-content">
+        <div class="product-name">
+          <h5>{{ item.product.name }}</h5>
+        </div>
+        <div class="product-quantity">
+          <p>Quantity: {{ item.quantity }}</p>
+        </div>
+        <div class="product-price">
+          <p>Total: ${{ item.product.price * item.quantity }}</p>
+        </div>
+      </div>
+      <div class="remove-button">
+        <button (click)="removeFromCart(item.product._id)">Remove</button>
+      </div>
+    </li>
+  </ul>
+  
+  <p *ngIf="cartItems.length === 0">Your cart is empty.</p>
+  <p *ngIf="cartItems.length > 0">Total Cost: ${{ getTotalCost() }}</p>
+  
+  <div class="cart-actions" *ngIf="cartItems.length > 0">
+    <button (click)="clearCart()">Clear Cart</button>
+    <a routerLink="/checkout">Proceed to Checkout</a>
+  </div>
+</div>

@@ -1,4 +1,4 @@
-header {
+nav {
     background-color: gray;
 }
 
@@ -18,3 +18,7 @@ header {
     border-color: white;
   }
   
+  .container-fluid {
+
+    width: 90%
+  }

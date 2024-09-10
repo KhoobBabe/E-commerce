@@ -12,7 +12,7 @@ export class CartService {
 
   // Add a product to the cart
   addToCart(product: Product): void {
-    const existingItem = this.cartItems.find(item => item.product.id === product.id);
+    const existingItem = this.cartItems.find(item => item.product._id === product._id);
     if (existingItem) {
       existingItem.quantity += 1; // Increase quantity if product already in cart
     } else {
@@ -22,8 +22,8 @@ export class CartService {
   }
 
   // Remove a product from the cart
-  removeFromCart(productId: number): void {
-    const index = this.cartItems.findIndex(item => item.product.id === productId);
+  removeFromCart(productId: string): void {
+    const index = this.cartItems.findIndex(item => item.product._id === productId);
     if (index !== -1) {
       this.cartItems.splice(index, 1);
     }

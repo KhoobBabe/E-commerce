@@ -1,2 +1,73 @@
-<h1>Checkout</h1>
-<p>Complete your purchase here.</p>
+<form [formGroup]="checkoutForm" (ngSubmit)="onSubmit()">
+    <div>
+      <label for="name">Full Name</label>
+      <input id="name" formControlName="name">
+      <div *ngIf="checkoutForm.get('name')?.invalid && checkoutForm.get('name')?.touched">
+        <small *ngIf="checkoutForm.get('name')?.hasError('required')">Name is required.</small>
+        <small *ngIf="checkoutForm.get('name')?.hasError('minlength')">Name must be at least 3 characters long.</small>
+      </div>
+    </div>
+  
+    <div>
+      <label for="address">Address</label>
+      <input id="address" formControlName="address">
+      <div *ngIf="checkoutForm.get('address')?.invalid && checkoutForm.get('address')?.touched">
+        <small *ngIf="checkoutForm.get('address')?.hasError('required')">Address is required.</small>
+        <small *ngIf="checkoutForm.get('address')?.hasError('minlength')">Address must be at least 10 characters long.</small>
+      </div>
+    </div>
+  
+    <div>
+      <label for="city">City</label>
+      <input id="city" formControlName="city">
+      <div *ngIf="checkoutForm.get('city')?.invalid && checkoutForm.get('city')?.touched">
+        <small *ngIf="checkoutForm.get('city')?.hasError('required')">City is required.</small>
+      </div>
+    </div>
+  
+    <div>
+      <label for="state">State</label>
+      <input id="state" formControlName="state">
+      <div *ngIf="checkoutForm.get('state')?.invalid && checkoutForm.get('state')?.touched">
+        <small *ngIf="checkoutForm.get('state')?.hasError('required')">State is required.</small>
+      </div>
+    </div>
+  
+    <div>
+      <label for="zipCode">Zip Code</label>
+      <input id="zipCode" formControlName="zipCode">
+      <div *ngIf="checkoutForm.get('zipCode')?.invalid && checkoutForm.get('zipCode')?.touched">
+        <small *ngIf="checkoutForm.get('zipCode')?.hasError('required')">Zip Code is required.</small>
+        <small *ngIf="checkoutForm.get('zipCode')?.hasError('pattern')">Zip Code must be 5 digits.</small>
+      </div>
+    </div>
+  
+    <!-- <div>
+      <label for="cardNumber">Card Number</label>
+      <input id="cardNumber" formControlName="cardNumber">
+      <div *ngIf="checkoutForm.get('cardNumber')?.invalid && checkoutForm.get('cardNumber')?.touched">
+        <small *ngIf="checkoutForm.get('cardNumber')?.hasError('required')">Card Number is required.</small>
+        <small *ngIf="checkoutForm.get('cardNumber')?.hasError('pattern')">Card Number must be 16 digits.</small>
+      </div>
+    </div>
+  
+    <div>
+      <label for="expirationDate">Expiration Date (MM/YY)</label>
+      <input id="expirationDate" formControlName="expirationDate">
+      <div *ngIf="checkoutForm.get('expirationDate')?.invalid && checkoutForm.get('expirationDate')?.touched">
+        <small *ngIf="checkoutForm.get('expirationDate')?.hasError('required')">Expiration Date is required.</small>
+        <small *ngIf="checkoutForm.get('expirationDate')?.hasError('pattern')">Expiration Date must be in MM/YY format.</small>
+      </div>
+    </div>
+  
+    <div>
+      <label for="cvv">CVV</label>
+      <input id="cvv" formControlName="cvv">
+      <div *ngIf="checkoutForm.get('cvv')?.invalid && checkoutForm.get('cvv')?.touched">
+        <small *ngIf="checkoutForm.get('cvv')?.hasError('required')">CVV is required.</small>
+        <small *ngIf="checkoutForm.get('cvv')?.hasError('pattern')">CVV must be 3 digits.</small>
+      </div>
+    </div> -->
+  
+    <button type="submit" [disabled]="checkoutForm.invalid">Submit</button>
+  </form>

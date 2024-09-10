@@ -1,0 +1,31 @@
+form {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Adjusts the space between form elements */
+    background-color: antiquewhite;
+  }
+  
+  ul, li {
+    background-color: antiquewhite;
+  }
+  form div {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+  }
+  
+  form label {
+    margin-right: 5px;
+  }
+  
+  button {
+    padding: 2px 7px;
+    cursor: pointer;
+    border-radius: 10px;
+  }
+  
+  input {
+    border-radius: 5px;
+    padding-left: 10px;
+    background-color: rgb(232, 236, 239);
+  }

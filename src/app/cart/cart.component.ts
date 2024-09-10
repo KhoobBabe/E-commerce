@@ -3,11 +3,12 @@ import { CartService } from '../cart.service';
 import { CommonModule } from '@angular/common';
 import { Product } from '../product';
 import { RouterModule } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http';
 
 @Component({
   selector: 'app-cart',
   standalone: true,
-  imports: [CommonModule, RouterModule],
+  imports: [CommonModule, RouterModule, HttpClientModule],
   templateUrl: './cart.component.html',
   styleUrl: './cart.component.css'
 })
@@ -21,7 +22,7 @@ export class CartComponent implements OnInit {
     console.log(this.cartItems); // Ensure cart items are retrieved
   }
 
-  removeFromCart(productId: number): void {
+  removeFromCart(productId: string): void {
     this.cartService.removeFromCart(productId);
     this.cartItems = this.cartService.getCartItems(); // Update cart items after removal
   }

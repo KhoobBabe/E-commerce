@@ -1,38 +1,43 @@
-import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators, ReactiveFormsModule, AbstractControl } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
 
 @Component({
   selector: 'app-user-registration',
   standalone: true,
-  imports: [ CommonModule, ReactiveFormsModule],
+  imports: [ CommonModule, ReactiveFormsModule, HttpClientModule],
   templateUrl: './user-registration.component.html',
   styleUrl: './user-registration.component.css'
 })
-export class UserRegistrationComponent {
+export class UserRegistrationComponent implements OnInit {
+  registrationForm!: FormGroup;
 
-    registrationForm : FormGroup;
+  constructor(private fb: FormBuilder) {}
 
-    constructor(private fb: FormBuilder) {
-      this.registrationForm = this.fb.group({
+  ngOnInit(): void {
+    this.registrationForm = this.fb.group({
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', [Validators.required, Validators.minLength(6)]],
+      confirmPassword: ['', Validators.required],
+    }, { validator: this.passwordMatchValidator });
+  }
 
-        email: ['', [Validators.required, Validators.email]],
-        password: ['', [Validators.required, Validators.minLength(6)]],
-        confirmPassword: ['', [Validators.required, this.matchPassword.bind(this)]],
-      })
-    }
+  passwordMatchValidator(control: AbstractControl): { [key: string]: boolean } | null {
+    const password = control.get('password')?.value;
+    const confirmPassword = control.get('confirmPassword')?.value;
+    return password === confirmPassword ? null : { 'mismatch': true };
+  }
 
-    matchPassword(control: any): { [key: string]: boolean } | null {
-      if (this.registrationForm && control.value !== this.registrationForm.controls['password'].value) {
-        return { passwordMismatch: true };
-      }
-      return null;
-    }
-
-
-  onSubmit(): void {
+  onSubmit() {
     if (this.registrationForm.valid) {
-      console.log('Form Submitted', this.registrationForm.value);
+      console.log('Registration Form Submitted', this.registrationForm.value);
+    } else {
+      console.log('Form is not valid');
     }
+  }
+
+  get passwordMatchError() {
+    return this.registrationForm.hasError('mismatch') && this.registrationForm.get('confirmPassword')?.touched;
   }
 }

@@ -1,17 +1,16 @@
 export class Product {
 
-    constructor (
-        public id: any, 
-        public name: string, 
-        public price: number, 
-        public description: string, 
-        public availability: boolean = true, 
-        public category: string) {
-    }
-
+    constructor(
+        public _id: string, // MongoDB will return _id instead of id
+        public name: string,
+        public price: number,
+        public description: string,
+        public availability: boolean,
+        public category: string
+      ) {}
     // Getters for the class
-    getId() : any {
-        return this.id;
+    getId() : string {
+        return this._id;
     }
     getName() : string {
         return this.name;
@@ -31,7 +30,7 @@ export class Product {
 
     // Setters for the class
     setId(id: any): void {
-        this.id = id;
+        this._id = id;
     }
     setName(name: string): void {
         this.name = name;
@@ -49,16 +48,5 @@ export class Product {
     setCategory(category: string): void {
         this.category = category;
     }
-
-}
-
-
-function calculateTotalPrice(products: Product[]): number {
-
-    let totalPrice = 0;
-    for (const product of products) {
-        totalPrice += product.getPrice();
-    }
-    return totalPrice;
 
 }
